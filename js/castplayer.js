@@ -83,14 +83,14 @@ CastPlayer.prototype.initializeCastPlayer = function() {
 
   if (!chrome.cast || !chrome.cast.isAvailable) {
     if (this.tries++ > 10) {
-      $('#extension').html("Looks like you don't have the Chromecast Extension. <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd\">Click here to Install it</a> and then reload the page");
+      $('#extension').html("No tienes instalada la extension de Chromecast, debes <a target=\"_blank\" href=\"https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd\">descargarla</a> y recargar esta pagina");
       return;
     }
     setTimeout(this.initializeCastPlayer.bind(this), 1000);
     return;
   }
 
-  $('#extension').html("Chromecast Extension is already installed");
+  $('#extension').html("Extension Chromecast instalada");
   // default set to the default media receiver app ID
   // optional: you may change it to point to your own
   var applicationID = chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID;
